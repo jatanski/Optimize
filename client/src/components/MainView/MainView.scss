@@ -1,0 +1,14 @@
+.stickers-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .sticker {
+        min-width: 15rem;
+        max-width: 16rem;
+    }
+}
+
+.team-less-card {
+    align-items: center;
+    padding-bottom: 1rem;
+}
