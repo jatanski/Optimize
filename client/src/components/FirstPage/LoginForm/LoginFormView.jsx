@@ -22,11 +22,10 @@ const LoginFormDisplay = ({
     <div className="firstView__loginForm">
       <MDBContainer>
         <MDBRow>
-          <MDBCol className="center" md="6">
+          <MDBCol className="center" md="6" xl="12">
             <MDBCard>
               <MDBCardBody>
                 <form>
-                  <p className="h4 text-center py-4">Sign in</p>
                   <div className="grey-text">
                     <MDBInput
                       onChange={handleInputChange}
@@ -52,7 +51,7 @@ const LoginFormDisplay = ({
                     />
                   </div>
                   <div className="text-center py-4 mt-3">
-                    <MDBBtn onClick={login} color="deep-orange" type="submit">
+                    <MDBBtn onClick={login} type="submit">
                       {showSpinner ? (
                         <div
                           className="spinner-grow spinner-grow-sm white text-success"
