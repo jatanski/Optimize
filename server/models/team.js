@@ -22,10 +22,7 @@ const Team = mongoose.model('team', new mongoose.Schema({
         type: Array,
         required: true
     }
-});
-
-
-const Team = mongoose.model('Team', teamSchema)
+}));
 
 function validateTeam(team) {
     const schema = {

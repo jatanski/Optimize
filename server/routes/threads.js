@@ -9,9 +9,12 @@ const router = express.Router();
 router.post('/', auth, async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
-
-    let team = await Team.findById(req.team._id);
+    console.log(req.body);
+    let team = await Team.findById(req.body.teamId);
     if (!team) return res.status(404).send('The team with the given ID was not found.');
+
+    let user = await User.findById(req.user._id);
+    if (!user) return res.status(404).send('The user was not found.');
 
     const date = Date.now();
 
@@ -30,40 +33,40 @@ router.post('/', auth, async (req, res) => {
     res.status(200).send('Thread sent.');
 });
 
+// zwraca wszystkie wątki w proojekcie 
 router.get('/:id', auth, async (req, res) => {
-    const index = Team.findIndex((element) => {
-        return element._id == req.params.id
-    });
-    if (index === -1) return res.status(404).send("Couldn't find team with that id.");
+    let team = await Team.findById(req.params.id);
+    if (!team) return res.status(404).send('The team with the given ID was not found.');
+
     
-    const threads = await Team[index].threads;
+    const threads = await team.threads;
     res.send(threads);
 });
 
-router.get('/:id', auth, async (req, ) => {
-    let team = await Team.findById(req.team._id);
-    if (!team) return res.status(404).send('The team with the given ID was not found.');
+// router.get('/:id', auth, async (req, ) => {
+//     let team = await Team.findById(req.team._id);
+//     if (!team) return res.status(404).send('The team with the given ID was not found.');
 
-    const index = Team.threads.findIndex((element) => {
-        return element._id == req.params.id
-    });
-    if (index === -1) return res.status(404).send("Couldn't find thread with that id.");
+//     const index = Team.threads.findIndex((element) => {
+//         return element._id == req.params.id
+//     });
+//     if (index === -1) return res.status(404).send("Couldn't find thread with that id.");
 
-    const thread = await team.threads[index];
-    res.send(thread);
-});
+//     const thread = await team.threads[index];
+//     res.send(thread);
+// });
 
 router.delete('/:id', auth, async (req, res) => {
-    let team = await Team.findById(req.team._id);
+    let team = await Team.findById(req.body.teamId);
     if (!team) return res.status(404).send('The team with the given ID was not found.');
 
-    const index = Team.threads.findIndex((element) => {
+    const index = team.threads.findIndex((element) => {
         return element._id == req.params.id
     });
     if (index === -1) return res.status(404).send("Couldn't find thread with that id.");
 
     const thread = await team.threads[index];
-    team, threads.splice(index, 1);    
+    team.threads.splice(index, 1);    
 
     team.markModified('threads');
     team = await team.save();

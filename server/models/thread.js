@@ -43,6 +43,10 @@ function validateThread(thread)
             .min(5)
             .max(1024)
             .required(),
+        teamId: Joi.string()
+            .min(5)
+            .max(1024)
+            .required()
     }
     return Joi.validate(thread, schema);
 }
