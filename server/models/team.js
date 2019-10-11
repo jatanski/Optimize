@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose');
 
-const teamSchema = mongoose.model('team', new mongoose.Schema({
+const Team = mongoose.model('team', new mongoose.Schema({
     name: {
         type: String,
         required: true,
