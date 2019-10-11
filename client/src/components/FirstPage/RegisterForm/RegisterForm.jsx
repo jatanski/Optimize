@@ -57,7 +57,6 @@ class RegisterForm extends Component {
 
         if (type.indexOf("text") >= 0) {
           const data = await response.text();
-
         } else {
           const data = await response.json();
 
@@ -65,7 +64,7 @@ class RegisterForm extends Component {
           baseModel.save("user", data);
           console.log("Logging...");
           allActions.logIn();
-          // this.props.history.push("/subscription");
+          // this.props.history.push("/dashboard");
         }
       });
     } catch (error) {

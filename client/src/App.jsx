@@ -1,9 +1,14 @@
-import React from 'react';
-import FirstPage from './pages/FirstPage'
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import FirstPage from "./pages/FirstPage";
 
 function App() {
   return (
-    <FirstPage></FirstPage>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={FirstPage}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
