@@ -7,7 +7,7 @@ import {
   MDBBtn,
   MDBCard,
   MDBCardBody,
-  MDBModalFooter,
+  MDBModalFooter
 } from "mdbreact";
 import RadioInput from "./RegisterFormRadioInput";
 import "./registerForm.scss";
@@ -82,7 +82,7 @@ const RegisterFormView = ({
                       label="Your slack name"
                       icon="address-card"
                       group
-                      type="password"
+                      type="text"
                       validate
                       onChange={handleInputChange}
                       id="registerFormSlackName"
