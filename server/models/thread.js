@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose')
 
-const Thread = mongoose.model('Thread', new mongoose.Schuma({
+const Thread = mongoose.model('Thread', new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -38,13 +38,13 @@ function validateThread(thread)
             .required(),
         author: Joi.string()
             .min(5)
-            .max(50)
-            .required(),
+            .max(50),
         content: Joi.string()
             .min(5)
             .max(1024)
             .required(),
     }
+    return Joi.validate(thread, schema);
 }
 
 exports.Thread = Thread;
