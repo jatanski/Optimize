@@ -10,7 +10,7 @@ class LoginForm extends Component {
     showSpinner: false
   };
 
-  endpoint = "auth";
+  endpoint = "login";
 
   handleInputChange = e => {
     const state = {};
