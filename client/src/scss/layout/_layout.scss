@@ -1,0 +1,20 @@
+#root {
+    height: 100vh;
+}
+
+.main-container {
+    height: 100%;
+    display: flex;
+}
+
+.main-aside {
+    flex: 0 1 6rem;
+}
+
+.main-nav {
+    flex: 0 1 30rem;
+}
+
+.main-content {
+    flex: 1;
+}
