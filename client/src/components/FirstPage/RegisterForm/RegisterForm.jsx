@@ -41,7 +41,7 @@ class RegisterForm extends Component {
         name: this.state.registerFormName,
         email: this.state.registerFormEmail,
         password: this.state.registerFormPassword,
-        slackId: this.state.registerFormSlackName
+        slackName: this.state.registerFormSlackName
       };
 
       this.setState({ showSpinner: true }, async () => {
