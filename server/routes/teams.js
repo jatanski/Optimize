@@ -16,9 +16,12 @@ router.post('/', auth, async (req, res) => {
     try {
         const team = new Team(_.pick(req.body, ['name', 'description']));
         
+        user.teams.push(team._id);
+        team.users.push(user.email);
 
-        user.teams.push(team);
         await user.save();
+        await team.save();
+        
         res.send(team);
 
     } catch (ex) {
