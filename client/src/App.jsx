@@ -1,14 +1,16 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import FirstPage from "./pages/FirstPage";
-import MainView from './pages/MainView';
+import Logged from './pages/Logged';
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Switch>
         <Route path="/" exact component={FirstPage}></Route>
-        <Route path="/home" exact component={MainView}></Route>
+        <Route path="/home" component={Logged}></Route>
       </Switch>
     </BrowserRouter>
   );
