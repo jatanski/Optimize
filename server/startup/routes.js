@@ -6,6 +6,8 @@ const loginRouter = require('../routes/login');
 const threadsRoute = require('../routes/threads');
 const webpushRouter = require('../routes/webpush');
 const teamsRouter = require('../routes/teams');
+const listOfUsersRoute = require('../routes/listOfUsers');
+const commentsRoute = require('../routes/comments');
 
 module.exports = function (app) {
 
@@ -16,5 +18,5 @@ module.exports = function (app) {
     app.use('/api/login', loginRouter);
     app.use('/api/subscribe', webpushRouter);
     app.use('/api/teams', teamsRouter);
-
+    app.use('/api/listofusers', listOfUsersRoute);
 };
