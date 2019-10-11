@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Joi = require('@hapi/joi');
 const config = require('config');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -8,13 +9,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 50,
-    },
-    surname: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50,
-        default: "Mac"
     },
     avatar: {
         type: String,
@@ -43,7 +37,6 @@ const userSchema = new mongoose.Schema({
     },
     team_role: {
         type: String,
-        required: true,
         enum: ["Admin", "Moderator", "User"]
     },
     teams: {
@@ -68,7 +61,10 @@ function validateUser(user) {
     password: Joi.string()
       .min(5)
       .max(1024)
-      .required()
+      .required(),
+      slackId: Joi.string()
+      .min(5)
+      .max(255)
   };
 
   return Joi.validate(user, schema);
@@ -76,10 +72,11 @@ function validateUser(user) {
 
 
 userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this._id }, config.get('jwtPrivateKey'));
+  const token = jwt.sign({ _id: this._id }, "HeckatonApp_jwtPrivateKey");
   return token;
 };
 
 const User = mongoose.model('User', userSchema);
 
 module.exports.User = User;
+module.exports.validate = validateUser;
