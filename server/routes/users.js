@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
+const auth = require('../middleware/auth');
 const express = require("express");
 const router = express.Router();
 const { User, validate } = require("../models/user");
@@ -13,7 +14,8 @@ router.post("/", async (req, res) => {
 
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
-    user = new User (_.pick(req.body, ['name', 'email', 'password', 'slackId']));
+    user = new User(_.pick(req.body, ['name', 'email', 'password', 'slackId']));
+    user.teams.push("essa");
     // Generate salt and hashed password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
@@ -22,6 +24,13 @@ router.post("/", async (req, res) => {
   const token = user.generateAuthToken();
   res.header('x-auth-token', token);
     res.send(user);
+});
+
+router.get('/', auth, async (req, res) => {
+    let user = await User.findById(req.user._id);
+    if (!user) return res.status(404).send('The user was not found.');
+
+    res.status(200).send(user);
 });
 
 module.exports = router;
