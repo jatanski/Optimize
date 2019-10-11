@@ -1,0 +1,25 @@
+.main-aside {
+    background-color: #1AC47D;
+    display: flex;
+    flex-direction: column;
+    
+    &__logo {
+        flex: 0 1 var(--bar-height);
+        margin-bottom: auto;
+        border-bottom: 1px solid #eee;
+    }
+
+    &__bottom {
+        border-top: 1px solid #eee;
+        flex: 0 1 auto;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+
+        i {
+            padding: 1.5rem 0;
+        }
+    }
+}

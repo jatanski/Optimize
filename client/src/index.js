@@ -8,6 +8,20 @@ import App from './App';
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
+if('serviceWorker' in navigator) {
+    send().catch(err => console.log(err));
+}
+
+async function send() {
+    console.log('Registering serviceWorker...');
+    const register = await navigator.serviceWorker.register('/worker.js', {
+        scope: '/'
+    });
+    console.log('Registered serviceWorker...');
+
+}
+
+
 ReactDOM.render(
 <Provider store={store}>
 <App />

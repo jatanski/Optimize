@@ -1,3 +1,9 @@
+:root {
+    --color-bg: #eee;
+    --color-gray-2: #ccc;
+
+    --bar-height: 7rem;
+}
 $firstView-primary: #ff5722;
 $firstView-primary-darken: darken($firstView-primary, 20%);
 $firstView-text-input: #757575;
