@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose');
 
-const teamSchema = mongoose.model('team', new mongoose.Schema({
+const Team = mongoose.model('team', new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -24,20 +24,20 @@ const teamSchema = mongoose.model('team', new mongoose.Schema({
     }
 }));
 
-function validateTeam(model) {
-  const schema = {
-    name: Joi.string()
-        .min(5)
-        .max(50)
-        .required(),
-    description: Joi.string()
-        .min(5)
-        .max(50)
-        .required()
-  }
-    
-  return Joi.validate(model, schema);
-  };
+function validateTeam(team) {
+    const schema = {
+        name: Joi.string()
+            .min(5)
+            .max(50)
+            .required(),
+        description: Joi.string()
+            .min(5)
+            .max(50)
+            .required()
+      };
 
-exports.Team = Team;
-exports.validate = validateTeam;
+  return Joi.validate(team, schema);
+}
+
+module.exports.Team = Team; 
+module.exports.validate = validateTeam;
