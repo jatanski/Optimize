@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Test from '../Test/Test';
+import { withRouter } from "react-router";
 
 const MainContentView = (props) => {
+    console.log(props.match.url);
+
     return (
         <div className="main-content">
             <div className="main-content__top-bar">
@@ -10,7 +13,7 @@ const MainContentView = (props) => {
             </div>
             <main className="main-content__switch">
                 <Switch>
-                    <Route path="/test" component={Test} />
+                    <Route path={props.match.url + '/test'} component={Test} />
 
                     {/* <Route path="/" exact component={FirstView} />
                     <Route path="/login" component={FirstView} />
@@ -27,4 +30,4 @@ const MainContentView = (props) => {
     )
 }
 
-export default MainContentView;
+export default withRouter(MainContentView);

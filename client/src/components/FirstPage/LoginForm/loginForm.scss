@@ -1,0 +1,19 @@
+@import "../../../scss/global.scss";
+
+.center {
+  margin: 5vh auto;
+}
+
+.activeLink {
+  cursor: pointer;
+  color: $firstView-primary;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: $firstView-primary-darken;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.white {
+  color: white;
+}

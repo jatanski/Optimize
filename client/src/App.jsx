@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Aside from './components/Aside/Aside';
-import Menu from './components/Menu/Menu';
-import MainContent from './components/MainContent/MainContent';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import FirstPage from "./pages/FirstPage";
+import Logged from './pages/Logged';
+
 
 function App() {
   return (
-      <div className="main-container">
-        <BrowserRouter >
-          <Aside />
-          <Menu />
-          <MainContent />
-        </BrowserRouter>
-      </div>
+    <BrowserRouter >
+      <Switch>
+        <Route path="/" exact component={FirstPage}></Route>
+        <Route path="/home" component={Logged}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

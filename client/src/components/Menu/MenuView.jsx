@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBNav, MDBNavItem, MDBNavLink} from 'mdbreact';
+import { withRouter } from 'react-router';
 
 const MenuView = (props) => {
     return (
@@ -9,17 +10,17 @@ const MenuView = (props) => {
             </figure>
             <MDBNav className="flex-column">
                 <MDBNavItem>
-                    <MDBNavLink active to="test">Test</MDBNavLink>
+                    <MDBNavLink active to={props.match.url + '/test'}>Test</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to="test1">Test 1</MDBNavLink>
+                    <MDBNavLink to={props.match.url + '/test1'}>Test 1</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to="test1">Test 2</MDBNavLink>
+                    <MDBNavLink to={props.match.url + '/test2'}>Test 2</MDBNavLink>
                 </MDBNavItem>
             </MDBNav>
         </nav>
     )
 }
 
-export default MenuView;
+export default withRouter(MenuView);
