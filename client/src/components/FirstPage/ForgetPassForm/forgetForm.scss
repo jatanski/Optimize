@@ -1,8 +1,12 @@
 @import "../../../scss/global.scss";
 
+.custom-control-input:checked ~ .radio-orange::before {
+  background-color: $firstView-primary !important;
+  border-color: $firstView-primary !important;
+}
 
-.center {
-  margin: 5vh auto;
+.input-text-grey {
+  color: $firstView-text-input !important;
 }
 
 .activeLink {
@@ -33,7 +37,7 @@
 }
 
 .vw-93 {
-  width: 93vw;
+  width: 95vw;
 }
 
 .card-height {

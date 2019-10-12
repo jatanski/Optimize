@@ -8,3 +8,66 @@
 .input-text-grey {
   color: $firstView-text-input !important;
 }
+
+.activeLink {
+  font-size: 14px;
+  cursor: pointer;
+  color: $firstView-primary;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: $firstView-primary-darken;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.login-btn {
+  color: white !important;
+  background: var(--color-main) !important;
+  transform: scale(1.3);
+  text-transform: none;
+}
+
+.logo {
+  margin: 7px;
+  position: absolute;
+}
+
+.mdb-row {
+  margin-top: 0;
+}
+
+.vw-93 {
+  width: 93vw;
+}
+
+.card-height {
+  height: 85vh;
+}
+
+.card-form {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstView__loginForm {
+  background: var(--color-main-light);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.white {
+  color: white;
+}
