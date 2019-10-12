@@ -3,14 +3,20 @@
     display: flex;
     flex-direction: column;
     
-    &__logo {
+    &__logo{
         flex: 0 1 var(--bar-height);
+        max-width: 8rem;
+        padding: 1rem 0;
         margin-bottom: auto;
-        border-bottom: 1px solid #eee;
+        object-fit: contain ;
+    };
+
+    &__logo img{
+
+        object-fit: contain ;
     }
 
     &__bottom {
-        border-top: 1px solid #eee;
         flex: 0 1 auto;
         font-size: 3rem;
         display: flex;
