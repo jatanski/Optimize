@@ -60,6 +60,7 @@ router.post("/", auth, async (req, res) => {
     'title': 'OptimizeApp',
     'message': "W twoim projekcie pojawiło się nowe zapytanie! Koniecznie sprawdź co to i pomóż swojemu koledze z zespołu. "
     });
+    
     res.status(200);
     res.send('Message has been sent.');
     } catch (ex) {
