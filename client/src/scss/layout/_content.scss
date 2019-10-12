@@ -4,6 +4,8 @@
     &__top-bar {
         height: var(--bar-height);
         background-color: var(--color-main-light);
+        font-size: 2rem;
+        padding: 2rem;
     }
 
     &__switch {

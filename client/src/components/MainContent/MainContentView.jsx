@@ -10,7 +10,7 @@ const MainContentView = (props) => {
     return (
         <div className="main-content">
             <div className="main-content__top-bar">
-                NAZWA WIDOKU
+                Name view
             </div>
             <main className="main-content__switch">
                 <Switch>
