@@ -22,7 +22,9 @@ router.post('/', auth, async (req, res) => {
         name: req.body.name,
         posted_at: date,
         author: user.email,
-        content: req.body.content
+        content: req.body.content,
+        category: req.body.category,
+        target: req.body.target
     });
 
     team.threads.push(thread);

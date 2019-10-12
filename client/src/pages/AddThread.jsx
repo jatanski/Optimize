@@ -4,11 +4,12 @@ import baseUtils from "../utils/baseUtils";
 
 class AddThread extends Component {
   state = { 
-    user: null 
+    user: null,
+    teamId: null
   }
 
   componentDidMount = () => {
-    // this.init();
+    this.init();
   }
 
   getUser = async () => {
@@ -34,17 +35,41 @@ class AddThread extends Component {
     }
   }
 
+  getTeam = async () => {
+    try {
+      const response = await fetch(`${baseUtils.baseApiUrl}teams/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          ...baseUtils.getAuthTokenHeaderObj()
+        }
+      });
+      let data;
+      if (response.headers.get("Content-Type").indexOf("text") >= 0) {
+        data = await response.text();
+      } else {
+        data = await response.json();
+      } 
+      return data;
+
+    } catch (ex) {
+      console.log('Exception:', ex)
+    }
+  }
+
   init = async () => {
     let user = await this.getUser();
+    let team = await this.getTeam()
 
     this.setState({
-        user: user
+        user: user,
+        teamId: team._id
       })
   };
 
   render = () => {
     return (
-        <NewThread></NewThread>
+        <NewThread teamId={this.state.teamId}></NewThread>
     );
   };
 }

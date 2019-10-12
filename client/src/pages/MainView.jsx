@@ -97,7 +97,6 @@ class MainView extends Component {
       } else {
         data = await response.json();
       } 
-      
       return data;
 
     } catch (ex) {
@@ -109,7 +108,7 @@ class MainView extends Component {
     let user = await this.getUser();
     // const team = this.getFakeInfo();
     let team = await this.getTeam();
-    console.log("team: ", team);
+    
     if (typeof team === "string" ) { team = false };
     user.teams = team;
 

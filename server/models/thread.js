@@ -26,6 +26,18 @@ const Thread = mongoose.model('Thread', new mongoose.Schema({
     },
     comments: {
         type: Array
+    },
+    category: {
+        type: String,
+        required: true,
+        minlength: 4,
+        maxlength: 1024
+    },
+    target: {
+        type: String,
+        required: true,
+        minlength: 4,
+        maxlength: 1024
     }
 }))
 
@@ -45,6 +57,14 @@ function validateThread(thread)
             .required(),
         teamId: Joi.string()
             .min(5)
+            .max(1024)
+            .required(),
+        category: Joi.string()
+            .min(4)
+            .max(1024)
+            .required(),
+        target: Joi.string()
+            .min(4)
             .max(1024)
             .required(),
     }
