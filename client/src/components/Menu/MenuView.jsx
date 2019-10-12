@@ -13,7 +13,7 @@ const MenuView = (props) => {
                     <MDBNavLink active to={props.match.url + '/test'}>Test</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to={props.match.url + '/test1'}>Test 1</MDBNavLink>
+                    <MDBNavLink to={props.match.url + '/single'}>Single post view</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to={props.match.url + '/test2'}>Test 2</MDBNavLink>
