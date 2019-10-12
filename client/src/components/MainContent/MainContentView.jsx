@@ -20,11 +20,12 @@ const MainContentView = props => {
             path={props.match.url + "/single"}
             component={SinglePostPage}
           />
-          <Route path="/" component={MainView} />
+  
           <Route
             path={props.match.url + "/projects"}
             component={ProjectsPage}
           ></Route>
+                  <Route path="/" component={MainView} />
           <Route render={() => <h1>Error 404</h1>} />
         </Switch>
       </main>
