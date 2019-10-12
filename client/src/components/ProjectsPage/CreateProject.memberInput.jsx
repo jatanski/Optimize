@@ -8,12 +8,12 @@ import {
 
 const MemberInput = ({ addUserToList, id, name }) => {
   return (
-    <div style={{ display: "flex" }}>
+    <div class="choose__full" style={{ display: "flex" }}>
       <input id={id} type="checkbox" onChange={addUserToList} />
-      <p id="userName">{name}</p>
+      <p className="choose__user" id="userName">{name}</p>
       <MDBDropdown>
-        <MDBDropdownToggle caret color="primary">
-          Choose role
+        <MDBDropdownToggle caret className="dropdownbutton" color="none">
+          Assign role
         </MDBDropdownToggle>
         <MDBDropdownMenu basic>
           <MDBDropdownItem>Frontend</MDBDropdownItem>

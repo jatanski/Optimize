@@ -7,6 +7,10 @@
     &__logo {
         flex: 0 1 var(--bar-height);
     }
+    &__name{
+        font-size: 5rem;
+        padding: 1.7rem;
+    }
 }
 
 .nav-link {
