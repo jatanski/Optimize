@@ -2,11 +2,22 @@ import React from 'react';
 import SingleCommentView from './SingleCommentView';
 
 class SingleComment extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLiked: false
+        }
+    }
 
+    onLikeClick = () => {
+        this.setState({
+            isLiked: true
+        })
+    }
     
     render() {
         return (
-            <SingleCommentView {...this.props.comment}/>
+            <SingleCommentView onClick={this.onLikeClick} liked={this.state.isLiked} {...this.props.comment}/>
         )
     }
 }
