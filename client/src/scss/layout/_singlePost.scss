@@ -29,7 +29,7 @@
 
 .overflow-fix {
     max-height: calc(100vh - 7rem - 22rem);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .card-title {
