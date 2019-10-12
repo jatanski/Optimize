@@ -7,12 +7,17 @@
 
 .activeLink {
   cursor: pointer;
-  color: $firstView-primary;
+  color: var(--color-main);
   transition: all 0.2s ease-in-out;
   &:hover {
     color: $firstView-primary-darken;
     transition: all 0.2s ease-in-out;
   }
+}
+
+.logo {
+  margin: 7px;
+  position: absolute;
 }
 
 .mdb-row {
@@ -44,7 +49,9 @@
 }
 
 .firstView__loginForm {
-  background: $white-transparent-active;
+  background: var(--color-main-light);
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .white {
