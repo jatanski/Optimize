@@ -31,7 +31,7 @@ router.post('/', auth, async (req, res) => {
     const date = Date.now();
 
     const comment = new Comment({
-        name: req.body.name,
+        name: `+rep ${thread.name}`,
         posted_at: date,
         author: user.email,
         content: req.body.content
