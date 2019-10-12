@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Test from '../Test/Test';
 import { withRouter } from "react-router";
 import SinglePostPage from '../../pages/SinglePostPage';
+import MainView from "../../pages/MainView";
 
 const MainContentView = (props) => {
     return (
@@ -14,6 +15,7 @@ const MainContentView = (props) => {
                 <Switch>
                     <Route path={props.match.url + '/test'} component={Test} />
                     <Route path={props.match.url + '/single'} component={SinglePostPage} />
+                    <Route path="/" component={MainView} />
 
                     {/* <Route path="/" exact component={FirstView} />
                     <Route path="/login" component={FirstView} />
