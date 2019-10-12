@@ -55,75 +55,78 @@ const RegisterFormView = ({
   ];
 
   return (
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol className="center" md="6">
-          <MDBCard>
-            <MDBCardBody>
-              <form>
-                <p className="h4 text-center py-4">Sign up</p>
-                <div className="grey-text">
-                  {inputs.map(input => {
-                    return <TextInput key={input.id} {...input}></TextInput>;
-                  })}
-                  {showIncorrectPassword ? (
-                    <p>Password aren't indencital.</p>
-                  ) : null}
-                </div>
-                <div className="firstView__registerForm--radiosInput">
-                  <p>Do you want connect your account with Slack?</p>
-                  <RadioInput
-                    isAdmin={slackNameTrue}
-                    id="adminInput"
-                    labelText="Yes"
-                  ></RadioInput>
-                  {showSlackNameInput ? (
-                    <MDBInput
-                      label="Your slack name"
-                      icon="address-card"
-                      group
-                      type="text"
-                      validate
-                      onChange={handleInputChange}
-                      id="registerFormSlackName"
-                    />
-                  ) : null}
-                  <RadioInput
-                    isAdmin={slackNameFalse}
-                    id="userInput"
-                    labelText="No"
-                  ></RadioInput>
-                </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn onClick={register} color="deep-orange" type="submit">
-                    {showSpinner ? (
-                      <div
-                        className="spinner-grow spinner-grow-sm white text-success"
-                        role="status"
-                      >
-                        <span className="sr-only">Loading...</span>
+      <div className="firstView__loginForm h-100">
+        <img className="logo" src="/logofav.png" width="37" height="37" alt="logo"/>
+        <MDBContainer className="ml-sm-5">
+          <p className="h4 text-left py-4 ml-3">Sign up</p>
+          <MDBRow className="vw-93">
+            <MDBCol className="center mdb-row" w="100">
+              <MDBCard className="card-height">
+                <MDBCardBody className="h-100 card-align p-2">
+                  <form className="card-form">
+                    <div className="grey-text">
+                      {inputs.map(input => {
+                        return <TextInput key={input.id} {...input}></TextInput>;
+                      })}
+                      {showIncorrectPassword ? (
+                        <p>Password aren't indencital.</p>
+                      ) : null}
+                    </div>
+                    <div className="firstView__registerForm--radiosInput">
+                      <p>Do you want connect your account with Slack?</p>
+                      <RadioInput
+                        isAdmin={slackNameTrue}
+                        id="adminInput"
+                        labelText="Yes"
+                      ></RadioInput>
+                      {showSlackNameInput ? (
+                        <MDBInput
+                          label="Your slack name"
+                          icon="address-card"
+                          group
+                          type="text"
+                          validate
+                          onChange={handleInputChange}
+                          id="registerFormSlackName"
+                        />
+                      ) : null}
+                      <RadioInput
+                        isAdmin={slackNameFalse}
+                        id="userInput"
+                        labelText="No"
+                      ></RadioInput>
+                    </div>
+                    <div className="text-center py-4 mt-3">
+                      <MDBBtn onClick={register} color="deep-orange" type="submit" className="login-btn">
+                        {showSpinner ? (
+                          <div
+                            className="spinner-grow spinner-grow-sm white text-success"
+                            role="status"
+                          >
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        ) : null}
+                        Register
+                      </MDBBtn>
+                    </div>
+                  </form>
+                  <MDBModalFooter>
+                    <div className="font-weight-light mr-xl-5">
+                      <div>
+                        Are you member?
+                        <div onClick={changeForm} className="activeLink">
+                          {" "}
+                          Sign in
+                        </div>
                       </div>
-                    ) : null}
-                    Register
-                  </MDBBtn>
-                </div>
-              </form>
-              <MDBModalFooter>
-                <div className="font-weight-light">
-                  <p>
-                    Are you member?
-                    <span onClick={changeForm} className="activeLink">
-                      {" "}
-                      Sign in
-                    </span>
-                  </p>
-                </div>
-              </MDBModalFooter>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+                    </div>
+                  </MDBModalFooter>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </div>
   );
 };
 
