@@ -70,7 +70,7 @@ const LoginFormDisplay = ({
                   </div>
                 </form>
                 <MDBModalFooter>
-                  <div className="font-weight-light mr-xl-5">
+                  <div className="font-weight-light footer-styling">
                     <div>
                       Not a member?
                       <div
