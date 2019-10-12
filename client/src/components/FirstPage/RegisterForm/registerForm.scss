@@ -1,15 +1,16 @@
 @import "../../../scss/global.scss";
 
 .custom-control-input:checked ~ .radio-orange::before {
-  background-color: $firstView-primary !important;
-  border-color: $firstView-primary !important;
+  background-color: var(--color-main);
+  border-color: var(--color-main) ;
 }
 
 .input-text-grey {
-  color: $firstView-text-input !important;
+  color: white;
 }
 
 .activeLink {
+  margin: 5px 0;
   font-size: 14px;
   cursor: pointer;
   color: $firstView-primary;
@@ -70,4 +71,8 @@
 
 .white {
   color: white;
+}
+
+.footer-styling {
+  margin-right: 20%;
 }

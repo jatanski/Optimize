@@ -9,6 +9,7 @@ const SingleMainView = (props) => {
                 <MDBCardTitle className="d-flex justify-content-between">
                     <span>{props.name}</span>
                     <span>{props.category}</span>
+
                 </MDBCardTitle>
                 <MDBCardText>{props.content}</MDBCardText>
                 <section className="single-post__image">

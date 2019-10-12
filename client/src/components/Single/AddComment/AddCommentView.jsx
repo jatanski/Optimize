@@ -5,15 +5,11 @@ const AddCommentView = (props) => {
     return (
         <div>
             <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">
-                Leave comment
-                </label>
-                <textarea
+           <MDBInput type="textarea" label="Add comment" outline 
                 onChange={props.onCommentChange}
                 className="form-control"
                 id="exampleFormControlTextarea1"
-                rows="5"
-                />
+                rows="5"/>
             </div>
             <div className="input-group" style={{marginBottom: '1rem'}}>
                 <div className="input-group-prepend">

@@ -6,10 +6,10 @@ const SingleCommentView = (props) => {
         <MDBCard >
             <MDBCardBody>
                 <MDBCardTitle>{ props.who }</MDBCardTitle>
-                <MDBCardText>{ props.content }</MDBCardText>
-                <div>
+                <MDBCardText className="comment__text">{ props.content }</MDBCardText>
+                <div className="comment__rating">
                     <span>{ props.rating }</span>
-                    <MDBIcon far icon="star" className="amber-text pr-3" size="2x" />
+                    <img src="/star.png" width="20" height="20" alt="rating star"/>
                 </div>
             </MDBCardBody>
         </MDBCard>

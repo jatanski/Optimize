@@ -1,4 +1,4 @@
-@import "../../../scss/global.scss";
+@import "../../scss/global.scss";
 
 
 .center {
@@ -70,4 +70,29 @@
 
 .footer-styling {
   margin-right: 20%;
+}
+
+.mdb-select {
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  width: 60%;
+  margin-left: 10px;
+}
+
+.mdb-input5 {
+  width: 60%;
+  margin-left: 10px !important;
+}
+
+label {
+  margin-left: 10px;
+}
+
+.mdb-area {
+  margin-left: 10px !important;
+  width: 75%;
+}
+
+.mdb-select:active {
+  outline: none;
 }

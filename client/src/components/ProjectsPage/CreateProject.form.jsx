@@ -5,6 +5,7 @@ import MemberInput from "./CreateProject.memberInput";
 const Form = ({
   createProject,
   addUserToList,
+  addRolesToList,
   listOfUsers,
   handleInputChange
 }) => {
@@ -35,6 +36,7 @@ const Form = ({
                     id={user._id}
                     name={user.name}
                     addUserToList={addUserToList}
+                    addRolesToList={addRolesToList}
                   ></MemberInput>
                 );
               })}

@@ -111,7 +111,7 @@ const RegisterFormView = ({
                     </div>
                   </form>
                   <MDBModalFooter>
-                    <div className="font-weight-light mr-xl-5">
+                    <div className="font-weight-light footer-styling">
                       <div>
                         Are you member?
                         <div onClick={changeForm} className="activeLink">
