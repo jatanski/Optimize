@@ -1,5 +1,6 @@
 @import "../../../scss/global.scss";
 
+
 .center {
   margin: 5vh auto;
 }
@@ -12,6 +13,38 @@
     color: $firstView-primary-darken;
     transition: all 0.2s ease-in-out;
   }
+}
+
+.mdb-row {
+  margin-top: 0;
+}
+
+.vw-93 {
+  width: 93vw;
+}
+
+.card-height {
+  height: 85vh;
+}
+
+.card-form {
+  padding: 0 180px;
+}
+
+.card-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstView__loginForm {
+  background: $white-transparent-active;
 }
 
 .white {
