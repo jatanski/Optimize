@@ -41,7 +41,7 @@ const ForgetPassFormView = ({ changeForm }) => {
                     </div>
                   </form>
                   <MDBModalFooter>
-                    <div className="font-weight-light mr-xl-5">
+                    <div className="font-weight-light footer-styling">
                       <div onClick={changeForm} className="activeLink">
                         Go to sign in.
                       </div>
