@@ -18,8 +18,8 @@ class AddComment extends React.Component {
         const obj = {
             content: this.state.comment,
             name: 'Chuj temu w dupe :)',
-            threadId: '5da1383f471bed9fcd43f4aa',
-            teamId: '5da12ea4913c6f2f002619dc'
+            threadId: this.props.threadId,
+            teamId: this.props.teamId
         }
 
         const response = await axios.post('http://localhost:8000/api/comments', obj, {
@@ -28,7 +28,7 @@ class AddComment extends React.Component {
             }
         });
 
-        console.log(response)
+        this.props.onCommentAdded(response.data)
     };
 
     onCommentChange = (ev) => {

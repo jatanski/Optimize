@@ -10,10 +10,7 @@ const MenuView = (props) => {
             </figure>
             <MDBNav className="flex-column">
                 <MDBNavItem>
-                    <MDBNavLink active to={props.match.url + '/home'}><img src="/pulpit.png" width="35" height="100%"></img>Pulpit</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <MDBNavLink to={props.match.url + '/single'}>Single post view</MDBNavLink>
+                    <MDBNavLink active to={props.match.url}><img src="/pulpit.png" width="35" height="100%"></img>Pulpit</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to={props.match.url + '/projects'}><img src="/team.png" width="35" height="100%"></img>Create project</MDBNavLink>
