@@ -15,50 +15,6 @@ class MainView extends Component {
     this.init();
   }
 
-  getFakeInfo = () => {
-    const project = {
-      name: "Project/Team Name",
-      description: "Some kind of description, projects targets etc",
-      users: [this.state.user],
-      threads: [
-        {
-          name: "Thread title",
-          author: "author@email",
-          posted_at: Date.now(),
-          content: "Thread content, questions, ideas etc... Thread content, questions, ideas etc... Thread content, questions, ideas etc...",
-          category: "Front",
-          comments: []
-        },
-        {
-          name: "Thread title",
-          author: "author@email",
-          posted_at: Date.now(),
-          content: "Thread content, questions, ideas etc... Thread content, questions, ideas etc... Thread content, questions, ideas etc...",
-          category: "Back",
-          comments: []
-        },
-        {
-          name: "Thread title",
-          author: "author@email",
-          posted_at: Date.now(),
-          content: "Thread content, questions, ideas etc... Thread content, questions, ideas etc... Thread content, questions, ideas etc...",
-          category: "Back",
-          comments: []
-        },
-        {
-          name: "Thread title",
-          author: "author@email",
-          posted_at: Date.now(),
-          content: "Thread content, questions, ideas etc... Thread content, questions, ideas etc... Thread content, questions, ideas etc...",
-          category: "General",
-          comments: []
-        }
-      ]
-    }
-
-    return project;
-  };
-
   getUser = async () => {
     try {
       const response = await fetch(`${baseUtils.baseApiUrl}users/`, {
@@ -108,6 +64,7 @@ class MainView extends Component {
     let user = await this.getUser();
     // const team = this.getFakeInfo();
     let team = await this.getTeam();
+    console.log("team ", team)
     
     if (typeof team === "string" ) { team = false };
     user.teams = team;

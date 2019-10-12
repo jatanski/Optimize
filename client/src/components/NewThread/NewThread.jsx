@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import baseUtils from "../../utils/baseUtils";
 import './newThread.scss';
+import { withRouter } from 'react-router';
 
 class NewThread extends Component {
   constructor (props) {
@@ -44,6 +45,8 @@ class NewThread extends Component {
             data = await response.json();
         } 
         console.log('Response: ', data);
+
+        this.props.history.push('/home');
     } catch (ex) {
         console.log('Exception:', ex)
     }
@@ -77,4 +80,4 @@ class NewThread extends Component {
   };
 }
 
-export default NewThread;
+export default withRouter(NewThread);
