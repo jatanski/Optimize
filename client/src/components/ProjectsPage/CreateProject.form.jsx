@@ -12,12 +12,12 @@ const Form = ({
   return (
     <MDBContainer>
       <MDBRow>
-        <MDBCol md="6">
+        <MDBCol md="6" xl="9">
           <form>
             <div className="grey-text">
               <MDBInput
+                className="grey-text__input"
                 label="Project name"
-                icon="envelope"
                 group
                 type="email"
                 validate
@@ -42,7 +42,7 @@ const Form = ({
               })}
             </div>
             <div className="text-center">
-              <MDBBtn onClick={createProject}>Create Project</MDBBtn>
+              <MDBBtn className="button-project" onClick={createProject}>Create Project</MDBBtn>
             </div>
           </form>
         </MDBCol>

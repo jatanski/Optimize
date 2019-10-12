@@ -1,6 +1,6 @@
 @import "../../../scss/global.scss";
 
-.custom-control-input:checked ~ .radio-orange::before {
+.custom-control-input:checked ~ .radio-green::before {
   background-color: var(--color-main);
   border-color: var(--color-main) ;
 }
@@ -13,7 +13,7 @@
   margin: 5px 0;
   font-size: 14px;
   cursor: pointer;
-  color: $firstView-primary;
+  color: var(--color-main);
   transition: all 0.2s ease-in-out;
   &:hover {
     color: $firstView-primary-darken;
@@ -22,7 +22,7 @@
 }
 
 .login-btn {
-  color: white !important;
+  color: white;
   background: var(--color-main) !important;
   transform: scale(1.3);
   text-transform: none;
@@ -63,10 +63,15 @@
   justify-content: center;
 }
 
-.firstView__loginForm {
-  background: var(--color-main-light);
-  margin-left: 0;
-  margin-right: 0;
+.firstView {
+  &__loginForm {
+    background: var(--color-main-light);
+    margin-left: 0;
+    margin-right: 0;
+}
+  &__slack{
+    color: var(--color-grey-2);
+  }
 }
 
 .white {
