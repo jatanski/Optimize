@@ -3,14 +3,14 @@ import NewThread from "../components/NewThread/NewThread";
 import baseUtils from "../utils/baseUtils";
 
 class AddThread extends Component {
-  state = { 
+  state = {
     user: null,
     teamId: null
-  }
+  };
 
   componentDidMount = () => {
     this.init();
-  }
+  };
 
   getUser = async () => {
     try {
@@ -26,14 +26,13 @@ class AddThread extends Component {
         data = await response.text();
       } else {
         data = await response.json();
-      } 
+      }
 
       return data;
-
     } catch (ex) {
-      console.log('Exception:', ex)
+      console.log("Exception:", ex);
     }
-  }
+  };
 
   getTeam = async () => {
     try {
@@ -49,27 +48,32 @@ class AddThread extends Component {
         data = await response.text();
       } else {
         data = await response.json();
-      } 
+      }
       return data;
-
     } catch (ex) {
-      console.log('Exception:', ex)
+      console.log("Exception:", ex);
     }
-  }
+  };
 
   init = async () => {
     let user = await this.getUser();
-    let team = await this.getTeam()
+    let team = await this.getTeam();
+
+    console.log(team);
 
     this.setState({
-        user: user,
-        teamId: team._id
-      })
+      user: user,
+      teamId: team._id,
+      channelId: team.channelId
+    });
   };
 
   render = () => {
     return (
-        <NewThread teamId={this.state.teamId}></NewThread>
+      <NewThread
+        channelId={this.state.channelId}
+        teamId={this.state.teamId}
+      ></NewThread>
     );
   };
 }
