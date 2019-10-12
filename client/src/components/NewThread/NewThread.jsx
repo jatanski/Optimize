@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
+import baseUtils from "../../utils/baseUtils";
 
 class NewThread extends Component {
   constructor (props) {
@@ -12,9 +13,39 @@ class NewThread extends Component {
     this.setState(state);
   };
 
-  addThread = e => {
+  addThread = async (e) => {
     e.preventDefault()
     console.log(this.state)
+
+    const requestBody = {
+      name: this.state.name,
+      content: this.state.content,
+      category: this.state.targetRole,
+      target: this.state.category,
+      teamId:this.props.teamId
+    }
+
+    // name, content, category, target, teamId
+    try {
+      const response = await fetch(`${baseUtils.baseApiUrl}threads/`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              ...baseUtils.getAuthTokenHeaderObj()
+          },
+          body: JSON.stringify(requestBody)
+      });
+
+        let data;
+        if (response.headers.get("Content-Type").indexOf("text") >= 0) {
+            data = await response.text();
+        } else {
+            data = await response.json();
+        } 
+        console.log('Response: ', data);
+    } catch (ex) {
+        console.log('Exception:', ex)
+    }
   };
 
   render = () => {
