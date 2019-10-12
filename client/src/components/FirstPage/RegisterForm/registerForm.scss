@@ -1,10 +1,10 @@
 @import "../../../scss/global.scss";
 
 .custom-control-input:checked ~ .radio-orange::before {
-  background-color: $firstView-primary !important;
-  border-color: $firstView-primary !important;
+  background-color: var(--color-main);
+  border-color: var(--color-main) ;
 }
 
 .input-text-grey {
-  color: $firstView-text-input !important;
+  color: white;
 }
