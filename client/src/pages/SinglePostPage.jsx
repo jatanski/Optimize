@@ -29,12 +29,19 @@ class SinglePostPage extends React.Component {
                 thread: myThread[0]
             }
         })
-        console.log(this.state)
+    }
+
+    onCommentAdded = (comment) => {
+        let newThread = this.state.thread;
+        newThread.comments.push(comment);
+        this.setState({
+            thread: newThread
+        })
+    
     }
 
     componentDidMount() {
         this.getThread()
-        console.log(this.props.location.state)
     }
 
     render() {
@@ -45,7 +52,7 @@ class SinglePostPage extends React.Component {
                 </div>
                 <div className="single-post__right">
                     <Comments comments={this.state.thread.comments} />
-                    <AddComment threadId={this.props.location.state.threadId} teamId={this.props.location.state.teamId} />
+                    <AddComment onCommentAdded={this.onCommentAdded} threadId={this.props.location.state.threadId} teamId={this.props.location.state.teamId} />
                 </div>
             </section>
         )
