@@ -74,7 +74,29 @@ class MainView extends Component {
       } else {
         data = await response.json();
       } 
+      console.log(data);
+      return data;
 
+    } catch (ex) {
+      console.log('Exception:', ex)
+    }
+  }
+
+  getTeam = async () => {
+    try {
+      const response = await fetch(`${baseUtils.baseApiUrl}teams/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          ...baseUtils.getAuthTokenHeaderObj()
+        }
+      });
+      let data;
+      if (response.headers.get("Content-Type").indexOf("text") >= 0) {
+        data = await response.text();
+      } else {
+        data = await response.json();
+      } 
       return data;
 
     } catch (ex) {
@@ -84,12 +106,14 @@ class MainView extends Component {
 
   init = async () => {
     let user = await this.getUser();
-    const team = this.getFakeInfo();
-
+    // const team = this.getFakeInfo();
+    let team = await this.getTeam();
+    
+    if (typeof team === "string" ) { team = false };
     user.teams = team;
 
     this.setState({
-        team: user.teams,
+        team: team,
         user: user
       })
   };
