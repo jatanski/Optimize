@@ -1,30 +1,37 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCardHeader } from "mdbreact";
+import { MDBContainer} from "mdbreact";
 import Sticker from "./Sticker";
 
 class InTeam extends Component {
+  constructor (props) {
+    super(props);
+    this.state = ({
+      user: this.props.user,
+      threads: this.props.user.teams.threads,
+      stickers: []
+    });
+  }
+
+  componentDidMount = () => {
+    this.createStickers();
+  }
+
+  createStickers = () => {
+    console.log("threads: ", this.props.user.teams.threads)
+    const stickers = this.state.threads.map((thread, idx) => {
+      return (<Sticker {...thread} key={idx} />)
+    })
+
+    this.setState({
+      stickers: stickers
+    })
+  }
 
   render = () => {
     return (
-      <div>
-        <MDBContainer style={{ marginTop: "1rem" }}>
-          <MDBCardHeader color="deep-orange lighten-1">
-            <MDBRow>
-              <MDBCol size="6" className="text-left font-weight-bold">Main View</MDBCol>
-              <MDBCol size="6" className="text-right font-weight-bold">Project Name</MDBCol>
-            </MDBRow>
-          </MDBCardHeader>
-        </MDBContainer>
         <MDBContainer className="stickers-container">
-          {/* alll threads go here <Thread /> */}
-          <Sticker />
-          <Sticker />
-          <Sticker />
-          <Sticker />
-          <Sticker />
-          <Sticker />
+          {this.state.stickers}
         </MDBContainer>
-      </div>
     );
   };
 }

@@ -18,6 +18,10 @@ const Team = mongoose.model('team', new mongoose.Schema({
         type: Array,
         required: true
     },
+    roles: {
+        type: Array,
+        required: true
+    },
     threads: {
         type: Array,
         required: true
@@ -33,7 +37,11 @@ function validateTeam(team) {
         description: Joi.string()
             .min(5)
             .max(50)
-            .required()
+            .required(),
+        users: Joi.array()
+            .items(Joi.string()),
+        roles: Joi.array()
+            .items(Joi.string())
       };
 
   return Joi.validate(team, schema);

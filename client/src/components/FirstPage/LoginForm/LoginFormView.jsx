@@ -9,6 +9,7 @@ import {
   MDBCardBody,
   MDBModalFooter
 } from "mdbreact";
+import "./loginForm.scss";
 
 const LoginFormDisplay = ({
   handleInputChange,
@@ -19,14 +20,15 @@ const LoginFormDisplay = ({
   value
 }) => {
   return (
-    <div className="firstView__loginForm">
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol className="center" md="6">
-            <MDBCard>
-              <MDBCardBody>
-                <form>
-                  <p className="h4 text-center py-4">Sign in</p>
+    <div className="firstView__loginForm h-100">
+      <img className="logo" src="/logofav.png" width="37" height="37" alt="logo"/>
+      <MDBContainer className="ml-sm-5">
+        <p className="h4 text-left py-4 ml-3">Sign in</p>
+        <MDBRow className="vw-93">
+          <MDBCol className="center mdb-row" w="100">
+            <MDBCard className="card-height">
+              <MDBCardBody className="h-100 card-align p-2">
+                <form className="card-form">
                   <div className="grey-text">
                     <MDBInput
                       onChange={handleInputChange}
@@ -52,7 +54,7 @@ const LoginFormDisplay = ({
                     />
                   </div>
                   <div className="text-center py-4 mt-3">
-                    <MDBBtn onClick={login} color="deep-orange" type="submit">
+                    <MDBBtn onClick={login} type="submit">
                       {showSpinner ? (
                         <div
                           className="spinner-grow spinner-grow-sm white text-success"
@@ -67,16 +69,16 @@ const LoginFormDisplay = ({
                 </form>
                 <MDBModalFooter>
                   <div className="font-weight-light">
-                    <p>
+                    <div>
                       Not a member?
-                      <span
+                      <div
                         onClick={changeFormToRegister}
                         className="activeLink"
                       >
                         {" "}
                         Sign Up
-                      </span>
-                    </p>
+                      </div>
+                    </div>
                     <p onClick={changeFormToForgetPass} className="activeLink">
                       Forgot Password?
                     </p>
