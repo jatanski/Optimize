@@ -21,12 +21,15 @@ router.post('/', auth, async (req, res) => {
         async function addTeam(item) {
             const currentUser = await User.findOne({_id: item});
             currentUser.teams.push(team._id);
+            currentUser.markModified('teams');
+            await currentUser.save();
         }
 
         req.body.users.forEach(addTeam);
 
         team.users.push(user.id);
 
+        
         await user.save();
         await team.save();
 
