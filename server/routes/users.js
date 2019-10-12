@@ -1,6 +1,6 @@
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const auth = require('../middleware/auth');
+const auth = require("../middleware/auth");
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
@@ -63,11 +63,11 @@ router.post("/", async (req, res) => {
   res.send(user);
 });
 
-router.get('/', auth, async (req, res) => {
-    let user = await User.findById(req.user._id);
-    if (!user) return res.status(404).send('The user was not found.');
+router.get("/", auth, async (req, res) => {
+  let user = await User.findById(req.user._id);
+  if (!user) return res.status(404).send("The user was not found.");
 
-    res.status(200).send(user);
+  res.status(200).send(user);
 });
 
 module.exports = router;
