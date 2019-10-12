@@ -9,7 +9,7 @@ const SingleCommentView = (props) => {
                 <MDBCardText className="comment__text">{ props.content }</MDBCardText>
                 <div className="comment__rating">
                     <span>{ props.rating }</span>
-                    <img onClick={ props.onClick } src={ !props.liked ? "/star.png" : "/star2.png" } width="20" height="20" alt="rating star"/>
+                    <img onClick={ props.onClick } src={ !props.liked ? "/star.png" : "/star2.png" } style={{cursor: 'pointer'}} width="20" height="20" alt="rating star"/>
                 </div>
             </MDBCardBody>
         </MDBCard>
