@@ -7,7 +7,9 @@ export default class CreateProject extends Component {
   state = {
     teamName: "",
     listOfMembers: [],
-    listOfUsers: []
+    listOfUsers: [],
+    listOfRoles: [],
+    slackId: ""
   };
 
   componentDidMount() {
@@ -31,36 +33,68 @@ export default class CreateProject extends Component {
     this.setState({
       listOfMembers: [...this.state.listOfMembers, e.target.id]
     });
+    console.log(e.target.id);
   };
 
-  createProject = () => {
+  addRoleToList = e => {
+    this.setState({
+      listOfRoles: [...this.state.listOfRoles, e.target.id]
+    });
+    console.log(e.target.id);
+  };
+
+  createProject = async () => {
+    console.log(this.state.listOfUsers);
+
+    const slackIds = [];
+    this.state.listOfUsers.forEach(user => {
+      this.state.listOfMembers.forEach(member => {
+        // console.log(member);
+        // console.log(user);
+        if (user._id == member) {
+          console.log("weszło");
+          slackIds.push(user.slackId);
+        }
+      });
+    });
+
+    console.log(slackIds);
+
+    const slackId = slackIds.join(",");
+
     console.log("działa");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGEwZjUxY2M1ODA0YzBhZDQ2MTFjYWIiLCJpYXQiOjE1NzA4MzUzNTF9.Tw2cYJe9rkA1WgBzRvzVPoil3h3xOZbKq-yHhaqKGAU";
+    const token = baseModel.getAuthToken();
+    console.log(token);
     const data = {
       name: this.state.teamName,
       description: "Fajny",
-      users: this.state.listOfMembers
+      users: this.state.listOfMembers,
+      roles: this.state.listOfRoles,
+      slackId: slackId
     };
 
     console.log(data);
-    axios
-      .post(baseModel.baseApiUrl + this.endpoint, JSON.stringify(data), {
-        "Content-Type": "application/json",
-        "x-auth-token": token["x-auth-token"]
-      })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(error => {
-        console.log(error);
+    try {
+      const token = baseModel.getAuthToken();
+      const response = await fetch(baseModel.baseApiUrl + this.endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-auth-token": token },
+        body: JSON.stringify(data)
       });
+
+      const dataf = await response.json();
+      console.log(dataf);
+    } catch (error) {
+      this.setState({ showSpinner: false });
+      console.error(error);
+    }
   };
 
   viewProps = {
     createProject: this.createProject,
     addUserToList: this.addUserToList,
-    handleInputChange: this.handleInputChange
+    handleInputChange: this.handleInputChange,
+    addRolesToList: this.addRoleToList
   };
   render() {
     return (

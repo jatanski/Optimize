@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBCardHeader, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCard } from "mdbreact";
+import { withRouter } from 'react-router';
 
 class Sticker extends Component {
   constructor (props) {
@@ -9,6 +10,20 @@ class Sticker extends Component {
       name: props.name,
       content: props.content,
     });
+  }
+
+  onClickHandler = (e) => {
+    const obj = {
+      threadId: this.props._id,
+      teamId: this.props.teamId 
+    }
+    // this.props.history.push('single/' + obj.threadId)
+    this.props.history.push({
+        pathname: 'home/single',
+        state: {
+          ...obj
+        }
+    })
   }
 
   setColor = () => {
@@ -33,7 +48,7 @@ class Sticker extends Component {
             <MDBCardText>
               {this.state.content}
             </MDBCardText>
-            <MDBBtn color={this.setColor()}>Go to thread</MDBBtn>
+            <MDBBtn onClick={this.onClickHandler} color={this.setColor()}>Go to thread</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </MDBContainer>
@@ -41,4 +56,4 @@ class Sticker extends Component {
   };
 }
 
-export default Sticker;
+export default withRouter(Sticker);

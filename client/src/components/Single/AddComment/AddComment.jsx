@@ -1,6 +1,7 @@
 import React from 'react';
 import AddCommentView from './AddCommentView';
 import axios from 'axios';
+import baseUtils from '../../../utils/baseUtils';
 
 class AddComment extends React.Component {
     constructor(props) {
@@ -14,10 +15,20 @@ class AddComment extends React.Component {
 
     onCommentSend = async () => {
         console.log('Wysyłam komentarz...');
-        const response = await axios.post('url', {
-            comment: this.state.comment,
-            file: this.state.file
+        const obj = {
+            content: this.state.comment,
+            name: 'Chuj temu w dupe :)',
+            threadId: this.props.threadId,
+            teamId: this.props.teamId
+        }
+
+        const response = await axios.post('http://localhost:8000/api/comments', obj, {
+            headers: {
+                ...baseUtils.getAuthTokenHeaderObj()
+            }
         });
+
+        this.props.onCommentAdded(response.data)
     };
 
     onCommentChange = (ev) => {
