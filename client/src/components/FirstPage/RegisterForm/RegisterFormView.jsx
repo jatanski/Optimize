@@ -25,28 +25,28 @@ const RegisterFormView = ({
 }) => {
   const inputs = [
     {
-      label: "Your name (Lenght must have minimum 5 characters.)",
+      label: "Name - minimum 5 characters",
       icon: "user",
       type: "text",
       onChange: handleInputChange,
       id: "registerFormName"
     },
     {
-      label: "Your mail",
+      label: "Mail",
       icon: "envelope",
       type: "email",
       onChange: handleInputChange,
       id: "registerFormEmail"
     },
     {
-      label: "Your password (Lenght must have minimum 5 characters.)",
+      label: "Password - minimum 5 characters",
       icon: "lock",
       type: "password",
       onChange: handleInputChange,
       id: "registerFormPassword"
     },
     {
-      label: "Confirm your password",
+      label: "Confirm password",
       icon: "exclamation-triangle",
       type: "password",
       onChange: handleInputChange,
@@ -72,8 +72,10 @@ const RegisterFormView = ({
                         <p>Password aren't indencital.</p>
                       ) : null}
                     </div>
-                    <div className="firstView__registerForm--radiosInput">
+
+                    <div className="firstView__registerForm--radiosInput radio-styling">
                       <p>Do you want connect your account with Slack?</p>
+
                       <RadioInput
                         isAdmin={slackNameTrue}
                         id="adminInput"
