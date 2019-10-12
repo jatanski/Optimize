@@ -72,7 +72,7 @@ const RegisterFormView = ({
                         <p>Password aren't indencital.</p>
                       ) : null}
                     </div>
-                    <div className="firstView__registerForm--radiosInput">
+                    <div className="firstView__registerForm--radiosInput radio-styling">
                       <p>Do you want connect your account with Slack?</p>
                       <RadioInput
                         isAdmin={slackNameTrue}
