@@ -5,7 +5,7 @@ const AsideView = (props) => {
     return (
         <aside className="main-aside" >
             <figure className="main-aside__logo">
-                <img src="" alt="Logo"/>
+                <img src="/logo.png" alt="Logo" width="70" height="70"/>
             </figure>
             <section className="main-aside__bottom">
                 <MDBIcon icon="user-circle" />

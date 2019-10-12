@@ -13,20 +13,40 @@ router.post('/', auth, async (req, res) => {
     let user = await User.findOne({_id: req.user._id });
     if (!user) return res.status(400).send("There is no user with this id.");
 
+
+
     try {
-        const team = new Team(_.pick(req.body, ['name', 'description']));
+        const team = new Team(_.pick(req.body, ['name', 'description', 'users', 'roles']));
         
-        user.teams.push(team._id);
-        team.users.push(user._id);
+        async function addTeam(item) {
+            const currentUser = await User.findOne({_id: item});
+            currentUser.teams.push(team._id);
+        }
+
+        req.body.users.forEach(addTeam);
+
+        team.users.push(user.id);
 
         await user.save();
         await team.save();
-        
+
         res.send(team);
 
     } catch (ex) {
         res.status(500).send(ex.message);
     }
 });
+
+router.get('/', auth, async (req, res) => {
+    let user = await User.findOne({ _id: req.user._id });
+    let team = await Team.findOne({users: req.user._id});
+    if (!user) return res.status(400).send("There is no user with this id.");
+    if (!team) return res.status(400).send("This user hass no teams.");
+
+    const teams = team;
+
+    res.send(teams);
+});
+
 
 module.exports = router;

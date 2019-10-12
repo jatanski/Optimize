@@ -1,17 +1,57 @@
 @import "../../../scss/global.scss";
 
+
 .center {
   margin: 5vh auto;
 }
 
 .activeLink {
   cursor: pointer;
-  color: $firstView-primary;
+  color: var(--color-main);
   transition: all 0.2s ease-in-out;
   &:hover {
     color: $firstView-primary-darken;
     transition: all 0.2s ease-in-out;
   }
+}
+
+.logo {
+  margin: 7px;
+  position: absolute;
+}
+
+.mdb-row {
+  margin-top: 0;
+}
+
+.vw-93 {
+  width: 93vw;
+}
+
+.card-height {
+  height: 85vh;
+}
+
+.card-form {
+  padding: 0 180px;
+}
+
+.card-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstView__loginForm {
+  background: var(--color-main-light);
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .white {

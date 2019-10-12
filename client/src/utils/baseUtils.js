@@ -1,4 +1,12 @@
 class baseUtils {
+
+  static timestampToDays(timestamp) {
+    const timeDiff = Date.now() - timestamp;
+    const timeDays = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
+    return timeDays;
+  }
+
+
   static baseApiUrl = "http://localhost:8000/api/";
 
   static getAuthTokenHeaderObj() {

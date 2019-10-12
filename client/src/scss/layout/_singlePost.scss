@@ -1,0 +1,30 @@
+.single-post {
+    display: flex;
+
+    &__left {
+        flex: 0 1 60%;
+    }
+
+    &__right {
+        flex: 0 1 40%;
+        
+        .card {
+            box-shadow: none;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--color-bg);
+            
+            &:hover {
+                // background-color: var(--color-bg);
+            }
+        }
+    }
+
+    & > * {
+        padding: 2rem 3rem;
+    }
+
+    &__image img {
+        max-width: 20%;
+    }
+    
+}
