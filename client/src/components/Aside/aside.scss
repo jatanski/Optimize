@@ -1,0 +1,8 @@
+@import "../../scss/global.scss";
+
+.main-menu {
+  display: block;
+  position: fixed !important;
+  height: 100vh;
+  z-index: 10;
+}
