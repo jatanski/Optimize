@@ -36,9 +36,8 @@ const Thread = mongoose.model('Thread', new mongoose.Schema({
         required: true,
         minlength: 4,
         maxlength: 1024
-    },
-    }
-}))
+    } 
+}));
 
 function validateThread(thread)
 {

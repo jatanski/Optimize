@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 
   //     console.log(user[0].id);
   //     slackId = user[0].id;
-  //   });
+    });
 
   user = new User({
     name: req.body.name,
