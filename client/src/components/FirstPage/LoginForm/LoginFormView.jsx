@@ -9,6 +9,7 @@ import {
   MDBCardBody,
   MDBModalFooter
 } from "mdbreact";
+import "./loginForm.scss";
 
 const LoginFormDisplay = ({
   handleInputChange,
@@ -19,13 +20,14 @@ const LoginFormDisplay = ({
   value
 }) => {
   return (
-    <div className="firstView__loginForm">
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol className="center" md="6" xl="12">
-            <MDBCard>
-              <MDBCardBody>
-                <form>
+    <div className="firstView__loginForm h-100">
+      <MDBContainer className="ml-5">
+        <p className="h4 text-left py-4 ml-2">Sign in</p>
+        <MDBRow className="vw-93">
+          <MDBCol className="center mdb-row" w="100">
+            <MDBCard className="card-height" >
+              <MDBCardBody className="h-100 card-align p-2">
+                <form className="card-form">
                   <div className="grey-text">
                     <MDBInput
                       onChange={handleInputChange}
