@@ -53,7 +53,7 @@ const LoginFormDisplay = ({
                     />
                   </div>
                   <div className="text-center py-4 mt-3">
-                    <MDBBtn onClick={login} color="deep-orange" type="submit">
+                    <MDBBtn onClick={login} type="submit">
                       {showSpinner ? (
                         <div
                           className="spinner-grow spinner-grow-sm white text-success"

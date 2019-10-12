@@ -1,10 +1,16 @@
 :root {
     --color-bg: #eee;
-    --color-gray-2: #ccc;
-
+    --color-gray: #333333;
+    --color-gray-2: #4F4F4F;
+    --color-gray-3: #828282;
+    --color-gray-4: #BDBDBD;
+    --color-gray-5: #ccc;
+    --color-main: #2F9F82;
+    --color-main-light: #F9FAFB;
+    --color-secondary: var(--color-main, 60%);
     --bar-height: 7rem;
 }
-$firstView-primary: #ff5722;
+$firstView-primary: #2F9F82;
 $firstView-primary-darken: darken($firstView-primary, 20%);
 $firstView-text-input: #757575;
 
