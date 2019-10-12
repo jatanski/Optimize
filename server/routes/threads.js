@@ -3,6 +3,7 @@ const auth = require("../middleware/auth");
 const { User } = require("../models/user");
 const { Team } = require("../models/team");
 const axios = require("axios");
+const notifier = require('node-notifier');
 
 const express = require("express");
 const router = express.Router();
@@ -52,6 +53,18 @@ router.post("/", auth, async (req, res) => {
     target: req.body.target,
     channelId: req.body.channelId
   });
+
+  try {
+        
+    notifier.notify({
+    'title': 'OptimizeApp',
+    'message': "W twoim projekcie pojawiło się nowe zapytanie! Koniecznie sprawdź co to i pomóż swojemu koledze z zespołu. "
+    });
+    res.status(200);
+    res.send('Message has been sent.');
+    } catch (ex) {
+        res.status(500).send(ex.message);
+    }
 
   team.threads.push(thread);
   team.markModified("threads");
