@@ -82,7 +82,6 @@ class MainView extends Component {
     }
   }
 
-  
   init = async () => {
     let user = await this.getUser();
     const team = this.getFakeInfo();
