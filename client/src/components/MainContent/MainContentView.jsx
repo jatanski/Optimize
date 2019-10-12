@@ -11,7 +11,7 @@ const MainContentView = props => {
   console.log(props.match.url);
   return (
     <div className="main-content">
-      <div className="main-content__top-bar">NAZWA WIDOKU</div>
+      <div className="main-content__top-bar">Name view</div>
       <main className="main-content__switch">
         <Switch>
           <Route path={props.match.url + "/test"} component={Test} />
@@ -33,3 +33,4 @@ const MainContentView = props => {
 };
 
 export default withRouter(MainContentView);
+
