@@ -21,13 +21,13 @@ router.post("/", auth, async (req, res) => {
       "https://slack.com/api/conversations.create",
       {
         token:
-          "xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098",
+          "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5",
         name: req.body.name,
         is_private: "true"
       },
       {
         headers: {
-          Authorization: `Bearer xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098`
+          Authorization: `Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5`
         }
       }
     )
@@ -41,7 +41,7 @@ router.post("/", auth, async (req, res) => {
 
   const data = {
     token:
-      "xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098",
+      "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5",
     channel: channelId,
     users: req.body.slackId
   };
@@ -51,7 +51,7 @@ router.post("/", auth, async (req, res) => {
     .post("https://slack.com/api/conversations.invite", data, {
       headers: {
         Authorization:
-          "Bearer xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098"
+          "Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
       }
     })
     .then(response => {

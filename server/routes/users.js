@@ -23,12 +23,12 @@ router.post("/", async (req, res) => {
       "https://slack.com/api/users.list",
       {
         token:
-          "xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098"
+          "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
       },
       {
         headers: {
           Authorization:
-            "Bearer xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098"
+            "Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
         }
       }
     )
