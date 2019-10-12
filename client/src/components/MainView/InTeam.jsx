@@ -17,6 +17,7 @@ class InTeam extends Component {
   }
 
   createStickers = () => {
+    console.log("threads: ", this.props.user.teams.threads)
     const stickers = this.state.threads.map((thread, idx) => {
       return (<Sticker {...thread} key={idx} />)
     })

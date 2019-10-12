@@ -33,9 +33,9 @@ router.get('/', auth, async (req, res) => {
     let user = await User.findOne({ _id: req.user._id });
     let team = await Team.findOne({users: req.user._id});
     if (!user) return res.status(400).send("There is no user with this id.");
-    if (!teams) return res.status(400).send("This user hass no teams.");
+    if (!team) return res.status(400).send("There is no team.");
 
-    const teams = await team;
+    const teams = team;
 
     res.send(teams);
 });
