@@ -26,6 +26,14 @@ const Thread = mongoose.model('Thread', new mongoose.Schema({
     },
     comments: {
         type: Array
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    target: {
+        type: String,
+        required: true
     }
 }))
 
@@ -47,6 +55,10 @@ function validateThread(thread)
             .min(5)
             .max(1024)
             .required(),
+        category: Joi.string()
+            .required(),
+        target: Joi.string()
+            .required()
     }
     return Joi.validate(thread, schema);
 }

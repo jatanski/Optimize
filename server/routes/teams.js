@@ -17,7 +17,7 @@ router.post('/', auth, async (req, res) => {
         const team = new Team(_.pick(req.body, ['name', 'description']));
         
         user.teams.push(team._id);
-        team.users.push(user.email);
+        team.users.push(user._id);
 
         await user.save();
         await team.save();

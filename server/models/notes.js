@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose')
 
-const Comment = mongoose.model('Comment', new mongoose.Schema({
+const Note = mongoose.model('Note', new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -55,5 +55,5 @@ function validateComment(comment) {
     return Joi.validate(comment, schema);
 }
 
-exports.Comment = Comment;
+exports.Comment = Note;
 exports.validate = validateComment;
