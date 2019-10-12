@@ -19,4 +19,5 @@ module.exports = function (app) {
     app.use('/api/subscribe', webpushRouter);
     app.use('/api/teams', teamsRouter);
     app.use('/api/listofusers', listOfUsersRoute);
+    app.use('/api/comments', commentsRoute);
 };

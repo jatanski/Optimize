@@ -15,32 +15,31 @@ router.post("/", async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
 
-  let slackId = "rrrrrrrr";
+  let slackId = "";
 
-  // //download users list of slack workspace, find user and add his id to userObject
-  // await axios
-  //   .post(
-  //     "https://slack.com/api/users.list",
-  //     {
-  //       token:
-  //         "xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
-  //     },
-  //     {
-  //       headers: {
-  //         Authorization:
-  //           "Bearer xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
-  //       }
-  //     }
-  //   )
-  //   .then(response => {
-  //     const members = response.data.members;
-  //       console.log(response.data);
-  //     const user = members.filter(member => {
-  //       return member.name == req.body.slackName;
-  //     });
-  //
+   //download users list of slack workspace, find user and add his id to userObject
+   await axios
+     .post(
+       "https://slack.com/api/users.list",
+       {
+         token:
+           "xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
+       },
+      {
+         headers: {
+           Authorization:
+             "Bearer xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
+         }
+       }
+     )
+     .then(response => {
+       const members = response.data.members;
+         console.log(response.data);
+       const user = members.filter(member => {
+         return member.name == req.body.slackName;
+       });
+
   //     console.log(user[0].id);
-  //
   //     slackId = user[0].id;
   //   });
 
@@ -50,7 +49,6 @@ router.post("/", async (req, res) => {
     password: req.body.password,
     slackId: slackId
   });
-  user.teams.push("essa");
 
   // Generate salt and hashed password
   const salt = await bcrypt.genSalt(10);

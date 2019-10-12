@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose')
 
-const Thread = mongoose.model('Thread', new mongoose.Schema({
+const Note = mongoose.model('Note', new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -24,24 +24,13 @@ const Thread = mongoose.model('Thread', new mongoose.Schema({
         minlength: 5,
         maxlength: 1024
     },
-    comments: {
-        type: Array
-    },
-    category: {
-        type: String,
-        required: true
-    },
-    target: {
-        type: String,
-        required: true,
-        minlength: 4,
-        maxlength: 1024
-    },
+    likes_count: {
+        type: Number,
+        default: 0
     }
 }))
 
-function validateThread(thread)
-{
+function validateComment(comment) {
     const schema = {
         name: Joi.string()
             .min(2)
@@ -54,21 +43,17 @@ function validateThread(thread)
             .min(5)
             .max(1024)
             .required(),
-        teamId: Joi.string()
+        threadId: Joi.string()
             .min(5)
             .max(1024)
             .required(),
-        category: Joi.string()
-            .min(4)
+        teamId: Joi.string()
+            .min(5)
             .max(1024)
-            .required(),
-        target: Joi.string()
-            .min(4)
-            .max(1024)
-            .required(),
+            .required()
     }
-    return Joi.validate(thread, schema);
+    return Joi.validate(comment, schema);
 }
 
-exports.Thread = Thread;
-exports.validate = validateThread;
+exports.Comment = Note;
+exports.validate = validateComment;

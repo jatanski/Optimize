@@ -47,8 +47,12 @@ function validateComment(comment) {
             .min(5)
             .max(1024)
             .required(),
+        teamId: Joi.string()
+            .min(5)
+            .max(1024)
+            .required()
     }
-    return Joi.validate(thread, schema);
+    return Joi.validate(comment, schema);
 }
 
 exports.Comment = Comment;
