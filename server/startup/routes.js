@@ -8,6 +8,7 @@ const webpushRouter = require('../routes/webpush');
 const teamsRouter = require('../routes/teams');
 const listOfUsersRoute = require('../routes/listOfUsers');
 const commentsRoute = require('../routes/comments');
+const notificationsRouter = require('../routes/notifications')
 
 module.exports = function (app) {
 
@@ -20,4 +21,6 @@ module.exports = function (app) {
     app.use('/api/teams', teamsRouter);
     app.use('/api/listofusers', listOfUsersRoute);
     app.use('/api/comments', commentsRoute);
+    app.use('/api/notifications', notificationsRouter);
+    
 };
