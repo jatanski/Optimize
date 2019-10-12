@@ -17,30 +17,31 @@ router.post("/", async (req, res) => {
 
   let slackId = "";
 
-   //download users list of slack workspace, find user and add his id to userObject
-   await axios
-     .post(
-       "https://slack.com/api/users.list",
-       {
-         token:
-           "xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
-       },
+  //download users list of slack workspace, find user and add his id to userObject
+  await axios
+    .post(
+      "https://slack.com/api/users.list",
       {
-         headers: {
-           Authorization:
-             "Bearer xoxp-773287386577-781574553623-786574746881-7b1dbf8bb1ce8068a9bddbee3015ea6e"
-         }
-       }
-     )
-     .then(response => {
-       const members = response.data.members;
-         console.log(response.data);
-       const user = members.filter(member => {
-         return member.name == req.body.slackName;
-       });
+        token:
+          "xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098"
+      },
+      {
+        headers: {
+          Authorization:
+            "Bearer xoxp-773287386577-781574553623-795284997718-caa33272967b9dea79415a42a8a57098"
+        }
+      }
+    )
+    .then(response => {
+      const members = response.data.members;
+      console.log(response.data);
+      const user = members.filter(member => {
+        return member.name == req.body.slackName;
+      });
 
-  //     console.log(user[0].id);
-  //     slackId = user[0].id;
+      console.log(user[0].id);
+
+      slackId = user[0].id;
     });
 
   user = new User({
