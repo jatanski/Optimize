@@ -45,6 +45,20 @@ router.get('/:id', auth, async (req, res) => {
     res.send(threads);
 });
 
+// router.get('/:id', auth, async (req, res) => {
+//     let team = await Team.findById(res.body.TeamId);
+//     if (!team) return res.status(404).send('The team with the given ID was not found.');
+
+//     const idx = team.threads.findIndex((thread) => {
+//         return thread._id == res.params.id;
+//     });
+//     if (idx === -1) return res.status(404).send('Thread with the given id not found.');
+
+
+//     let thread = await team.threads[idx];
+
+//     res.send(thread);
+// });
 // router.get('/:id', auth, async (req, ) => {
 //     let team = await Team.findById(req.team._id);
 //     if (!team) return res.status(404).send('The team with the given ID was not found.');
@@ -58,8 +72,8 @@ router.get('/:id', auth, async (req, res) => {
 //     res.send(thread);
 // });
 
-router.delete('/:id', auth, async (req, res) => {
-    let team = await Team.findById(req.body.teamId);
+router.delete('/:teamId/:id', auth, async (req, res) => {
+    let team = await Team.findById(req.params.teamId);
     if (!team) return res.status(404).send('The team with the given ID was not found.');
 
     const index = team.threads.findIndex((element) => {

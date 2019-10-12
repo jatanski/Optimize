@@ -31,7 +31,7 @@ router.post('/', auth, async (req, res) => {
     const date = Date.now();
 
     const comment = new Comment({
-        name: req.body.name,
+        name: `+rep ${thread.name}`,
         posted_at: date,
         author: user.email,
         content: req.body.content
@@ -46,20 +46,18 @@ router.post('/', auth, async (req, res) => {
     res.status(200).send('Comment sent.');
 });
 
-// zwraca wszystkie wątki w proojekcie 
+// zwraca wszystkie komentarze w wątku  
 router.get('/', auth, async (req, res) => {
     let team = await Team.findById(res.body.TeamId);
     if (!team) return res.status(404).send('The team with the given ID was not found.');
-
 
     const idx = team.threads.findIndex((thread) => {
         return thread._id == res.body.ThreadId;
     });
     if (idx === -1) return res.status(404).send('Thread with the given id not found.');
 
-
-    let thread = await team.threads[index];
-    let comment = await thread.find({});
+    let thread = await team.threads[idx];
+    let comment = await thread.comments;
 
     res.send(comment);
 });
