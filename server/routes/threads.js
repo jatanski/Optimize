@@ -57,8 +57,10 @@ router.post("/", auth, async (req, res) => {
   try {
         
     notifier.notify({
-    'title': 'OptimizeApp',
-    'message': "W twoim projekcie pojawiło się nowe zapytanie! Koniecznie sprawdź co to i pomóż swojemu koledze z zespołu. "
+      title: 'OptimizeApp',
+      message: "W twoim projekcie pojawiło się nowe zapytanie! Koniecznie sprawdź co to i pomóż swojemu koledze z zespołu. ",
+      icon: path.join(__dirname, '../../client/public/logo.png'),
+      sound: true
     });
     res.status(200);
     res.send('Message has been sent.');
