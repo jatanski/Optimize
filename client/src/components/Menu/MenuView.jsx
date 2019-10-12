@@ -6,14 +6,11 @@ const MenuView = (props) => {
     return (
         <nav className="main-nav">
             <figure className="main-nav__logo">
-                <img src="" alt="logo"/>
+                <h1 className="main-nav__name">optimize</h1>
             </figure>
             <MDBNav className="flex-column">
                 <MDBNavItem>
-                    <MDBNavLink active to={props.match.url + '/home'}><img src="/pulpit.png" width="35" height="100%"></img>Pulpit</MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                    <MDBNavLink to={props.match.url + '/single'}>Single post view</MDBNavLink>
+                    <MDBNavLink active to={props.match.url}><img src="/pulpit.png" width="35" height="100%"></img>Pulpit</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to={props.match.url + '/projects'}><img src="/team.png" width="35" height="100%"></img>Create project</MDBNavLink>

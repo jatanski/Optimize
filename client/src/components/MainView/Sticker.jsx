@@ -19,7 +19,7 @@ class Sticker extends Component {
     }
     // this.props.history.push('single/' + obj.threadId)
     this.props.history.push({
-        pathname: 'single',
+        pathname: 'home/single',
         state: {
           ...obj
         }
