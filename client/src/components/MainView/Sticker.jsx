@@ -41,7 +41,7 @@ class Sticker extends Component {
   render = () => {
     return (
       <MDBContainer className="sticker">
-        <MDBCard style={{ marginTop: "1rem" }}>
+        <MDBCard className="shadow" style={{ marginTop: "1rem" }}>
           <MDBCardHeader color={`${this.setColor()} lighten-1`}>{this.state.category}</MDBCardHeader>
           <MDBCardBody>
             <MDBCardTitle>{this.state.name}</MDBCardTitle>
