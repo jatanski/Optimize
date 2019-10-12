@@ -6,7 +6,7 @@ const AddCommentView = (props) => {
         <div>
             <div className="form-group">
                 <label htmlFor="exampleFormControlTextarea1">
-                Basic textarea
+                Leave comment
                 </label>
                 <textarea
                 onChange={props.onCommentChange}
