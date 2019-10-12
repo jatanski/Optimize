@@ -15,6 +15,9 @@ class AddComment extends React.Component {
 
     onCommentSend = async () => {
         console.log('Wysyłam komentarz...');
+        this.setState({
+            comment: ''
+        })
         const obj = {
             content: this.state.comment,
             name: 'Chuj temu w dupe :)',
@@ -27,7 +30,6 @@ class AddComment extends React.Component {
                 ...baseUtils.getAuthTokenHeaderObj()
             }
         });
-
         this.props.onCommentAdded(response.data)
     };
 
@@ -39,7 +41,6 @@ class AddComment extends React.Component {
 
     onFileChange = ev => {
         const uploadedFile = ev.target.files[0];
-        console.log(uploadedFile)
         this.setState(state => {
             return { file: uploadedFile, fileName: uploadedFile.name}
         })
@@ -52,6 +53,7 @@ class AddComment extends React.Component {
                 onCommentChange={this.onCommentChange}
                 onFileChange={this.onFileChange}
                 fileName={this.state.fileName}
+                inputValue={this.state.comment}
             />
         )
     }
