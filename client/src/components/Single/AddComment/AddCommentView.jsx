@@ -5,7 +5,7 @@ const AddCommentView = (props) => {
     return (
         <div>
             <div className="form-group">
-            <MDBInput type="textarea" label="Add comment" outline 
+           <MDBInput type="textarea" label="Add comment" outline 
                 onChange={props.onCommentChange}
                 className="form-control"
                 id="exampleFormControlTextarea1"

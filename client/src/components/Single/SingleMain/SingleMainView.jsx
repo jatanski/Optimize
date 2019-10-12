@@ -6,9 +6,10 @@ const SingleMainView = (props) => {
     return (
         <MDBCard>
             <MDBCardBody>
-                <MDBCardTitle>
-                    {props.who}
-                    <small className="card-title__small">{baseUtils.timestampToDays(props.date)} days ago</small>
+                <MDBCardTitle className="d-flex justify-content-between">
+                    <span>{props.name}</span>
+                    <span>{props.category}</span>
+
                 </MDBCardTitle>
                 <MDBCardText>{props.content}</MDBCardText>
                 <section className="single-post__image">
