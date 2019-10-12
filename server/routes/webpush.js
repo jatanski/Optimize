@@ -9,7 +9,7 @@ const privateKey = "2ChVNxdod1VEyE_BM8bK_ePcwSfJkOgqC-ygU0j6eK4";
 
 webPush.setVapidDetails('mailto:test@test.com', publicKey, privateKey);
 
-router.post('/subscribe', async (req, res) => {
+router.post('/', async (req, res) => {
     const subscription = req.body;
 
     res.status(201).send({});

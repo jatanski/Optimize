@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 const mongoose = require('mongoose');
 
- const teamSchema = new mongoose.Schema({
+const Team = mongoose.model('team', new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -22,10 +22,7 @@ const mongoose = require('mongoose');
         type: Array,
         required: true
     }
-});
-
-
-const Team = mongoose.model('Team', teamSchema)
+}));
 
 function validateTeam(team) {
     const schema = {

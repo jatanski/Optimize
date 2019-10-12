@@ -17,16 +17,28 @@ router.post('/', auth, async (req, res) => {
         const team = new Team(_.pick(req.body, ['name', 'description']));
         
         user.teams.push(team._id);
-        team.users.push(user.email);
+        team.users.push(user.id);
 
         await user.save();
         await team.save();
-        
+
         res.send(team);
 
     } catch (ex) {
         res.status(500).send(ex.message);
     }
 });
+
+router.get('/', auth, async (req, res) => {
+    let user = await User.findOne({ _id: req.user._id });
+    let team = await Team.findOne({users: req.user._id});
+    if (!user) return res.status(400).send("There is no user with this id.");
+    if (!teams) return res.status(400).send("This user hass no teams.");
+
+    const teams = await team;
+
+    res.send(teams);
+});
+
 
 module.exports = router;
