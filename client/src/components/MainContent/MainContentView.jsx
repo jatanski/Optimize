@@ -20,7 +20,6 @@ const MainContentView = props => {
             path={props.match.url + "/single"}
             component={SinglePostPage}
           />
-  
           <Route
             path={props.match.url + "/projects"}
             component={ProjectsPage}
