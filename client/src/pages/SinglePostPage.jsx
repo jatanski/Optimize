@@ -46,15 +46,20 @@ class SinglePostPage extends React.Component {
 
     render() {
         return (
-            <section className="single-post">
-                <div className="single-post__left">
-                    <SingleMain {...this.state.thread}/>
-                </div>
-                <div className="single-post__right">
-                    <Comments comments={this.state.thread.comments} />
-                    <AddComment onCommentAdded={this.onCommentAdded} threadId={this.props.location.state.threadId} teamId={this.props.location.state.teamId} />
-                </div>
-            </section>
+            <React.Fragment>
+                <div className="main-content__top-bar">Thread Details</div>
+                <section className="single-post">
+                    <div className="single-post__left">
+                        <SingleMain {...this.state.thread}/>
+                    </div>
+                    <div className="single-post__right">
+                        <div className="overflow-fix">
+                            <Comments comments={this.state.thread.comments} />
+                        </div>
+                        <AddComment onCommentAdded={this.onCommentAdded} threadId={this.props.location.state.threadId} teamId={this.props.location.state.teamId} />
+                    </div>
+                </section>
+            </React.Fragment>
         )
     }
 }

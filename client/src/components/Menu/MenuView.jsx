@@ -6,7 +6,6 @@ const MenuView = (props) => {
     return (
         <nav className="main-nav">
             <figure className="main-nav__logo">
-                <img src="" alt="logo"/>
             </figure>
             <MDBNav className="flex-column">
                 <MDBNavItem>
