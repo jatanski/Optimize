@@ -77,9 +77,10 @@ class MainView extends Component {
 
   render = () => {
     return (
-      <MDBContainer fluid>
-        { this.state.team ? <InTeam user={ this.state.user } /> : <TeamLess /> }
-      </MDBContainer>
+      <React.Fragment>
+        <div style={{marginBottom: '2rem'}} className="main-content__top-bar">Dashboard</div>
+          { this.state.team ? <InTeam user={ this.state.user } /> : <TeamLess /> }
+      </React.Fragment>
     );
   };
 }

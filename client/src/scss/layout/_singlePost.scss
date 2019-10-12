@@ -26,6 +26,12 @@
         // background-color: var(--color-bg);
     }
 }
+
+.overflow-fix {
+    max-height: calc(100vh - 7rem - 22rem);
+    overflow-y: scroll;
+}
+
 .card-title {
     padding-top: 1rem;
     font-size: 2rem;

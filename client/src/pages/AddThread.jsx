@@ -70,10 +70,12 @@ class AddThread extends Component {
 
   render = () => {
     return (
-      <NewThread
-        channelId={this.state.channelId}
-        teamId={this.state.teamId}
-      ></NewThread>
+      <React.Fragment>
+        <div className="main-content__top-bar">Add Thread</div>
+        <NewThread
+          channelId={this.state.channelId}
+          teamId={this.state.teamId} />
+      </React.Fragment>
     );
   };
 }
