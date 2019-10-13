@@ -28,7 +28,7 @@ const Form = ({
               />
               <p>Choose your team</p>
             </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div className="listOfmembers">
               {listOfUsers.map(user => {
                 return (
                   <MemberInput
@@ -42,7 +42,9 @@ const Form = ({
               })}
             </div>
             <div className="text-center">
-              <MDBBtn className="button-project" onClick={createProject}>Create Project</MDBBtn>
+              <MDBBtn className="button-project" onClick={createProject}>
+                Create Project
+              </MDBBtn>
             </div>
           </form>
         </MDBCol>

@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "./CreateProject.form";
+import "./createProject.scss";
 
 const CreateProjectView = props => {
   return (

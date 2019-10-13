@@ -14,7 +14,7 @@ const MemberInput = ({ addUserToList, addRolesToList, id, name }) => {
     addRolesToList(e);
   };
   return (
-    <div class="choose__full" style={{ display: "flex" }}>
+    <div class="choose__full display">
       <input id={id} type="checkbox" onChange={addUserToList} />
       <label htmlFor={id} className="choose__user" id="userName">
         {name}

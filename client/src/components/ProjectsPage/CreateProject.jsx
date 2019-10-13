@@ -13,11 +13,12 @@ export default class CreateProject extends Component {
   };
 
   componentDidMount() {
-    console.log("ide");
-    axios.get(baseModel.baseApiUrl + this.endpointUserList).then(response => {
-      console.log(response.data);
-      this.setState({ listOfUsers: response.data });
-    });
+    axios
+      .get(baseModel.baseApiUrl + this.endpointUserList)
+      .then(response => {
+        this.setState({ listOfUsers: response.data });
+      })
+      .catch(error => console.error(error));
   }
 
   endpoint = "teams";
@@ -33,38 +34,24 @@ export default class CreateProject extends Component {
     this.setState({
       listOfMembers: [...this.state.listOfMembers, e.target.id]
     });
-    console.log(e.target.id);
   };
 
   addRoleToList = e => {
     this.setState({
       listOfRoles: [...this.state.listOfRoles, e.target.id]
     });
-    console.log(e.target.id);
   };
 
   createProject = async () => {
-    console.log(this.state.listOfUsers);
-
     const slackIds = [];
     this.state.listOfUsers.forEach(user => {
       this.state.listOfMembers.forEach(member => {
-        // console.log(member);
-        // console.log(user);
-        if (user._id == member) {
-          console.log("weszło");
-          slackIds.push(user.slackId);
-        }
+        if (user._id == member) slackIds.push(user.slackId);
       });
     });
 
-    console.log(slackIds);
-
     const slackId = slackIds.join(",");
 
-    console.log("działa");
-    const token = baseModel.getAuthToken();
-    console.log(token);
     const data = {
       name: this.state.teamName,
       description: "Fajny",
@@ -73,17 +60,13 @@ export default class CreateProject extends Component {
       slackId: slackId
     };
 
-    console.log(data);
     try {
       const token = baseModel.getAuthToken();
-      const response = await fetch(baseModel.baseApiUrl + this.endpoint, {
+      await fetch(baseModel.baseApiUrl + this.endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-auth-token": token },
         body: JSON.stringify(data)
       });
-
-      const dataf = await response.json();
-      console.log(dataf);
     } catch (error) {
       this.setState({ showSpinner: false });
       console.error(error);
