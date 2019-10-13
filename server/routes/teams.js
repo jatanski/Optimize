@@ -1,11 +1,9 @@
 const express = require("express");
 const { User } = require("../models/user");
 const { Team, validate } = require("../models/team");
-const Joi = require("@hapi/joi");
 const router = express.Router();
 const auth = require("../middleware/auth");
-const _ = require("lodash");
-const config = require("config");
+const config = require("../startup/config");
 const axios = require("axios");
 
 router.post("/", auth, async (req, res) => {
@@ -20,42 +18,43 @@ router.post("/", auth, async (req, res) => {
     .post(
       "https://slack.com/api/conversations.create",
       {
-        token:
-          "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5",
+        token: config.token,
         name: req.body.name,
         is_private: "true"
       },
       {
         headers: {
-          Authorization: `Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5`
+          Authorization: `Bearer ${config.token}`
         }
       }
     )
     .then(response => {
-      console.log("tutaj");
-      console.log(response.data.channel.id); // to jest id kanału, musi być zapisane
+      if (response.data.error) console.log(response.data.error);
       channelId = response.data.channel.id;
+    })
+    .catch(error => {
+      console.error(error);
     });
 
   // add users to channel
 
   const data = {
-    token:
-      "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5",
+    token: config.token,
     channel: channelId,
     users: req.body.slackId
   };
 
-  console.log(data);
   await axios
     .post("https://slack.com/api/conversations.invite", data, {
       headers: {
-        Authorization:
-          "Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
+        Authorization: `Bearer ${config.token}`
       }
     })
     .then(response => {
-      console.log(response.data); // tutaj w sumie nic nie musi zwracac, ale niech se zwraca
+      if (response.data.error) console.log(response.data.error);
+    })
+    .catch(error => {
+      console.error(error);
     });
 
   try {
