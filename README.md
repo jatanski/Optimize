@@ -1,9 +1,10 @@
-![Optimize App](https://github.com/jatanski/Optimize/blob/master/client/public/example.JPG)
 # Optimize App
+
+![Optimize App](https://github.com/jatanski/Optimize/blob/master/client/public/example.JPG)
 
 App is used to give and receive feedback in project team.
 
-Optimize App achieved 2nd place at Heckaton CodersCamp with Divante and Divinite.
+Optimize App won 2nd place at Heckaton CodersCamp with Divante and Divinite.
 
 ## Features
 * create account and connect with slack
