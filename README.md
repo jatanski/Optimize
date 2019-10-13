@@ -18,7 +18,6 @@ Optimize App won 2nd place at Heckaton CodersCamp with Divante and Divinite.
 
 **SRC:**
 * **components** - all no-view React.js components in folders with styles in SASS,
-* **assets** - all images used in projects,
 * **redux** - all redux files used in projects,
 * **scss** - global.scss file with global styles, mixins & variables in SaSS,
 * **pages** - all view React .js components in folders with styles
@@ -37,6 +36,7 @@ Optimize App won 2nd place at Heckaton CodersCamp with Divante and Divinite.
 * mongodb,
 * mongoose,
 * react,
+* react-router
 
 ## What's in the next version?
 
