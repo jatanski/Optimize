@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { MDBInput, MDBBtn } from "mdbreact";
 import baseUtils from "../../utils/baseUtils";
-import './newThread.scss';
-import { withRouter } from 'react-router';
+import "./newThread.scss";
+import { withRouter } from "react-router";
 
 class NewThread extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleInputChange = e => {
     const state = {};
     state[`${e.target.id}`] = e.target.value;
@@ -41,15 +37,15 @@ class NewThread extends Component {
         body: JSON.stringify(requestBody)
       });
 
-        let data;
-        if (response.headers.get("Content-Type").indexOf("text") >= 0) {
-            data = await response.text();
-        } else {
-            data = await response.json();
-        } 
-        console.log('Response: ', data);
+      let data;
+      if (response.headers.get("Content-Type").indexOf("text") >= 0) {
+        data = await response.text();
+      } else {
+        data = await response.json();
+      }
+      console.log("Response: ", data);
 
-        this.props.history.push('/home');
+      this.props.history.push("/home");
     } catch (ex) {
       console.log("Exception:", ex);
     }

@@ -46,7 +46,7 @@ export default class CreateProject extends Component {
     const slackIds = [];
     this.state.listOfUsers.forEach(user => {
       this.state.listOfMembers.forEach(member => {
-        if (user._id == member) slackIds.push(user.slackId);
+        if (user._id === member) slackIds.push(user.slackId);
       });
     });
 

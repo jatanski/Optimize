@@ -52,20 +52,15 @@ class RegisterForm extends Component {
           body: JSON.stringify(registerData)
         });
 
-        const type = response.headers.get("Content-Type");
         const token = response.headers.get("x-auth-token");
 
-        if (type.indexOf("text") >= 0) {
-          const data = await response.text();
-        } else {
-          const data = await response.json();
+        const data = await response.json();
 
-          baseModel.saveAuthToken(token);
-          baseModel.save("user", data);
-          console.log("Logging...");
-          allActions.logIn();
-          this.props.history.push("/home");
-        }
+        baseModel.saveAuthToken(token);
+        baseModel.save("user", data);
+        console.log("Logging...");
+        allActions.logIn();
+        this.props.history.push("/home");
       });
     } catch (error) {
       this.setState({ showSpinner: false });

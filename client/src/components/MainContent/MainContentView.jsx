@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Test from "../Test/Test";
 import { withRouter } from "react-router";
 import SinglePostPage from "../../pages/SinglePostPage";
 import MainView from "../../pages/MainView";
@@ -21,7 +20,7 @@ const MainContentView = props => {
             path={props.match.url + "/projects"}
             component={ProjectsPage}
           ></Route>
-                  <Route path="/" component={MainView} />
+          <Route path="/" component={MainView} />
           <Route render={() => <h1>Error 404</h1>} />
         </Switch>
       </main>
@@ -30,4 +29,3 @@ const MainContentView = props => {
 };
 
 export default withRouter(MainContentView);
-
