@@ -1,4 +1,4 @@
-![Optimize App](https://github.com/jatanski/master-of-sport/blob/master/public/example.JPG)
+![Optimize App](https://github.com/jatanski/Optimize/blob/master/client/public/example.JPG)
 # Optimize App
 
 App is used to give and receive feedback in project team.
@@ -63,7 +63,7 @@ You will also see any lint errors in the console.
 
 ## In server folder:
 
-### `set token=*your slack token*`
+### `set token=your-slack-token`
 
 You must set your slack token, becuase without this people can't create a account connected with slack
 
