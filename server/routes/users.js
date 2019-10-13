@@ -5,12 +5,11 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const { User, validate } = require("../models/user");
+const config = require("../startup/config");
 
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-
-  console.log(req.body);
 
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
@@ -22,26 +21,25 @@ router.post("/", async (req, res) => {
     .post(
       "https://slack.com/api/users.list",
       {
-        token:
-          "xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
+        token: config.token
       },
       {
         headers: {
-          Authorization:
-            "Bearer xoxp-773287386577-781574553623-786705570273-9a348ee226e8361a45ac2ec9349ea1d5"
+          Authorization: `Bearer ${config.token}`
         }
       }
     )
     .then(response => {
+      if (response.data.error) console.log(response.data.error);
       const members = response.data.members;
-      console.log(response.data);
       const user = members.filter(member => {
         return member.name == req.body.slackName;
       });
 
-      console.log(user[0].id);
-
       slackId = user[0].id;
+    })
+    .catch(error => {
+      console.error(error);
     });
 
   user = new User({
@@ -55,7 +53,6 @@ router.post("/", async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
 
-  console.log(user);
   await user.save();
   const token = user.generateAuthToken();
   res.header("x-auth-token", token);
