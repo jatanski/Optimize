@@ -2,6 +2,5 @@
   "jwtPrivateKey": "HeckatonApp_jwtPrivateKey",
   "publicVapidKey": "BJ56SiiWKsOytzDkAMsw3DwuoUBV3KLTAkeQr6uWLKmYqmqjmHkj5z8u3jiFImoDv5c3Nk869AfgWwdgmV1TrOY",
   "privateVapidkey": "2ChVNxdod1VEyE_BM8bK_ePcwSfJkOgqC-ygU0j6eK4",
-  "token": "token",
-  "admin": "admin"
+  "token": "token"
 }
